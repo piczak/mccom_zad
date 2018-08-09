@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text.css" href="assets/css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+    <div class="d-none d-sm-block" style="float:right; width: 200px;">
+        <img style="position:absolute; width:200px;" src="assets/img/film_stock.png" />
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="navbar">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <img class="logo img-fluid" src="assets/img/mccom.png"/>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-6 col-lg-7 col-xl-7">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span onclick="searchMovies()" class="input-group-text" id="search-button">Search</span>
+                                </div>
+                                <input type="text" class="form-control" id="search-input" placeholder="search" aria-describedby="search-button">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="col-sm-12">
+                <div class="main">
+                    <div class="row" id="template">
+
+                        <!--movies template-->
+                        <!--<div class="col-lg-12">-->
+                            <!--<div class="row">-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img onclick="setMovie('tt0372784')" class="img-fluid" src="https://m.media-amazon.com/images/M/MV5BZmUwNGU2ZmItMmRiNC00MjhlLTg5YWUtODMyNzkxODYzMmZlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg" />-->
+                                            <!--<p onclick="setMovie('tt0372784')" >Batman Begins - movie(2005)</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img onclick="setMovie('tt2975590')" class="img-fluid" src="https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" />-->
+                                            <!--<p onclick="setMovie('tt2975590')" >Batman v Superman: Dawn of Justice - movie(2016)</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img onclick="setMovie('tt0096895')" class="img-fluid" src="https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg" />-->
+                                            <!--<p onclick="setMovie('tt0096895')">Batman movie(1989)</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img onclick="setMovie('tt0103776')" class="img-fluid" src="https://ia.media-imdb.com/images/M/MV5BOGZmYzVkMmItM2NiOS00MDI3LWI4ZWQtMTg0YWZkODRkMmViXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_SX300.jpg" />-->
+                                            <!--<p onclick="setMovie('tt0103776')">Batman Returns movie(1992)</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img onclick="setMovie('tt0112462')" class="img-fluid" src="https://m.media-amazon.com/images/M/MV5BNWY3M2I0YzItNzA1ZS00MzE3LThlYTEtMTg2YjNiOTYzODQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" />-->
+                                            <!--<p onclick="setMovie('tt0112462')">Batman Forever movie(1995)</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img class="img-fluid" src="https://m.media-amazon.com/images/M/MV5BZmUwNGU2ZmItMmRiNC00MjhlLTg5YWUtODMyNzkxODYzMmZlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg" />-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movies col-12 col-sm-6 col-md-4 col-lg-3">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+                                            <!--<img class="img-fluid" src="https://m.media-amazon.com/images/M/MV5BZmUwNGU2ZmItMmRiNC00MjhlLTg5YWUtODMyNzkxODYzMmZlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg" />-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div id="paginator">-->
+                            <!--<nav aria-label="Page navigation example">-->
+                                <!--<ul class="pagination">-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                                    <!--<li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+                                <!--</ul>-->
+                            <!--</nav>-->
+                        <!--</div>-->
+                        <!--movie template-->
+                        <!--<div class="col-sm-9 col-md-8">-->
+                            <!--<div class="title">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-12 col-sm-12 col-md-12 col-lg-9">-->
+                                        <!--<div>movie (2017)</div>-->
+                                        <!--<div id="title">-->
+                                            <!--Tytuł-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-12 col-sm-12 col-md-12 col-lg-3">-->
+                                        <!--<div class="rating-box ">-->
+                                            <!--<p><img src="assets/img/12.png" /> imdbRating: 6,7</p>-->
+                                            <!--<p>imdbVotes: 397,820</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="movie-info">-->
+                                    <!--<div class="movie-genere">-->
+                                        <!--<div class="row">-->
+                                            <!--<span class="col-md-auto">Genere: <button class="btn btn-lnk btn-primary btn-sm">action</button> <button class="btn btn-lnk btn-primary btn-sm">adventure</button> <button class="btn btn-lnk btn-primary btn-sm">sci-fi</button></span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="separator"></div>-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-md-8 col-lg-9">-->
+                                            <!--<p>The Guardians must fight to keep their newfound family together as they unravel the mystery of Peter Quill's true parentage.</p>-->
+                                        <!--</div>-->
+                                        <!--<div class="movie-info-topic col-12 col-sm-12 col-md-4 lg-3">-->
+                                            <!--<p><span>Runtime:</span> 129 min</p>-->
+                                            <!--<p><span>Released:</span> 2017-10-2</p>-->
+                                            <!--<p><span>Rated:</span> pg-13</p>-->
+                                            <!--<p><span>Language:</span> English</p>-->
+                                            <!--<p><span>Country:</span> US</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="separator"></div>-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-lg-12">-->
+                                            <!--<p>Actors: Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-3 col-md-4">-->
+                            <!--<a href="https://marvel.com/guardians">-->
+                                <!--<div class="poster-container float-right img-fluid">-->
+                                    <!--<div class="poster">-->
+                                        <!--<img class="img-fluid" src="assets/img/gotg.jpg"/>-->
+                                        <!--<span id="border-bottom-right-first"></span>-->
+                                        <!--<span id="border-bottom-right-second"></span>-->
+                                        <!--<span id="border-bottom-right-third"></span>-->
+                                        <!--<span id="border-top-left-first"></span>-->
+                                        <!--<span id="border-top-left-second"></span>-->
+                                        <!--<span id="border-top-left-third"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div id="sidebar">sidebar</div>-->
+        <!--<div id="navbar">navbar</div>-->
+        <!--<div id="main">main-->
+            <!--<div id="movie">-->
+                <!--<div id="movie-title"></div>-->
+                <!--<div id="movie-year"></div>-->
+                <!--<div id="movie-poster"></div>-->
+                <!--<div id="movie-released"></div>-->
+                <!--<div id="movie-runtime"></div>-->
+                <!--<div id="movie-rated"></div>-->
+                <!--<div id="movie-genere"></div>-->
+                <!--<div id="movie-lang"></div>-->
+                <!--<div id="movie-country"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <!--<div class="container">-->
+        <!--<div id="person"></div>-->
+    <!--</div>-->
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/templates.js"></script>
+</body>
+</html>
