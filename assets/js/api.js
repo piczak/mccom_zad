@@ -24,3 +24,11 @@ function templateSelector(responseData, data) {
             break;
     }
 }
+
+function getMovie(responseData, data) {
+    document.getElementById("template").innerHTML = movieTemplate(responseData, data)
+}
+
+function getMovies(responseData, data) {
+    document.getElementById("template").innerHTML = moviesTemplate(responseData, data)
+}

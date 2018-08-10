@@ -1,14 +1,5 @@
 function movieTemplate(responseData, data)
 {
-    var genreButtons = ''
-    if(responseData.Genre !== 'N/A') {
-        var array = responseData.Genre.split(",");
-        for (var i = 0; i < array.length; i++) {
-            genreButtons += "<button class='btn btn-lnk btn-primary btn-sm'>" + array[i] + "</button>"
-        }
-    } else {
-        genreButtons = 'N/A'
-    }
     var poster = ''
     if(responseData.Poster && responseData.Website) {
         poster =
@@ -40,15 +31,15 @@ function movieTemplate(responseData, data)
             "</div>"
     }
 
-    return "<div class='col-sm-9 col-md-8'>\n" +
+    return "<div class='col-12 col-sm-12 col-md-12'>\n" +
         "<div class='title'>\n" +
         "<div class='row'>\n" +
-        "<div class='col-12 col-sm-12 col-md-12 col-lg-9'>\n" +
+        "<div class='col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9'>\n" +
         "<div>" + (( responseData.Type !== 'N/A') ? responseData.Type : '' ) + "(" + (( responseData.Year !== 'N/A') ? responseData.Year : '' ) + ")" + "</div>\n" +
-        "<div id='title'>" + (( responseData.Title !== 'N/A') ? responseData.Title : '' ) + "\n" +
+        "<div id='title'>" + (( responseData.Title !== 'N/A') ? responseData.Title : '' ) + "</div>\n" +
         "</div>\n" +
-        "</div>\n" +
-        "<div class='col-12 col-sm-12 col-md-12 col-lg-3'>\n" +
+        "<div class='col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3'>" + poster + "</div>\n" +
+        "<div class='col-9 col-sm-9 col-md-3 col-lg-3 col-xl-3'>\n" +
         "<div class='rating-box '>\n" +
         "<p>" + (( responseData.imdbRating !== 'N/A') ? '<img src=\'assets/img/12.png\' />ImdbRating: ' + responseData.imdbRating : '' ) + "</p>\n" +
         "<p>" + (( responseData.imdbVotes !== 'N/A') ? 'ImdbVotes: ' + responseData.imdbVotes : '' ) + "</p>\n" +
@@ -58,12 +49,12 @@ function movieTemplate(responseData, data)
         "<div class='movie-info'>\n" +
         "<div class='movie-genere'>\n" +
         "<div class='row'>\n" +
-        "<span class='col-md-auto'>" + (( genreButtons !== 'N/A') ? 'Genre: ' + genreButtons : '' ) + "</span>\n" +
+        "<span class='col-md-auto'>" + (( responseData.Genre !== 'N/A') ? 'Genre: ' + responseData.Genre : '' ) + "</span>\n" +
         "</div>\n" +
         "</div>\n" +
         "<div class='separator'></div>\n" +
         "<div class='row'>\n" +
-        "<div class='col-md-8 col-lg-9'>\n" +
+        "<div class='col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9'>\n" +
         "<p>" + (( responseData.Plot !== 'N/A') ? responseData.Plot : '' ) + "</p>\n" +
         "</div>\n" +
         "<div class='movie-info-topic col-12 col-sm-12 col-md-4 lg-3'>\n" +
@@ -82,8 +73,7 @@ function movieTemplate(responseData, data)
         "</div>\n" +
         "</div>\n" +
         "</div>\n" +
-        "</div>\n" +
-        "<div class='col-sm-3 col-md-4'>" + poster + "</div>"
+        "</div>"
 }
 
 function moviesTemplate(responseData, data) {
@@ -111,26 +101,40 @@ function pagination(responseData, data) {
     var pagesAmount = parseInt(responseData.totalResults/10)
     var paginationPages = ''
     if(responseData.totalResults > recordsPerPage) {
-        if(pagesAmount * recordsPerPage < responseData.totalResults) {
+        if (pagesAmount * recordsPerPage < responseData.totalResults) {
             pagesAmount += 1
         }
-        if(!data.pageNo){
+        if (!data.pageNo) {
             data.pageNo = '1'
         }
 
-        for(var i = 1; i <= pagesAmount; i++) {
-            if( i == data.pageNo) {
-                paginationPages += "<li id='pag-pages-" + i + "' onclick='setPage(" + "\"" + i +"\"" + ", " + "\"" + data.search + "\"" + ")' class='active page-block page-item'><a class='page-link'>" + i + "</a></li>"
-            } else {
-                paginationPages += "<li id='pag-pages-" + i + "' onclick='setPage(" + "\"" + i + "\"" + ", " + "\"" + data.search + "\"" + ")' class='page-block page-item'><a class='page-link'>" + i + "</a></li>"
-            }
-        }
+        if(responseData.totalResults > 40) {
 
-        return "<nav aria-label='Page navigation example'>\n" +
-            "<ul class='pagination'>\n" +
-            "<li class='page-item' onclick='setPage(\"prev\"," + "\"" + data.search + "\")'><a class='page-link'>Previous</a></li>" + paginationPages +
-            "<li class='page-item'  onclick='setPage(\"next\"," + "\"" + data.search + "\")'><a class='page-link'>Next</a></li>\n" +
-            "</ul>\n" +
-            "</nav>"
+            for (var i = 1; i <= 4; i++) {
+                if (i == data.pageNo) {
+                    paginationPages += "<li id='pag-pages-" + i + "' onclick='setPage(" + "\"" + i + "\"" + ", " + "\"" + data.search + "\"" + ")' class='active page-block page-item'><a class='page-link'>" + i + "</a></li>"
+                } else {
+                    paginationPages += "<li id='pag-pages-" + i + "' onclick='setPage(" + "\"" + i + "\"" + ", " + "\"" + data.search + "\"" + ")' class='page-block page-item'><a class='page-link'>" + i + "</a></li>"
+                }
+            }
+
+            return "<div class='col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>\n" +
+                "<nav aria-label='Page navigation example'>\n" +
+                "<ul class='pagination'>\n" +
+                "<li class='page-item' onclick='setPage(\"prev\"," + "\"" + data.search + "\")'><a class='page-link'>Previous</a></li>" + paginationPages +
+                "<li class='page-item'  onclick='setPage(\"next\"," + "\"" + data.search + "\")'><a class='page-link'>Next</a></li>\n" +
+                "</ul>\n" +
+                "</nav>\n" +
+                "</div>"
+        } else {
+            return "<div class='col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>\n" +
+                "<nav aria-label='Page navigation example'>\n" +
+                "<ul class='pagination'>\n" +
+                "<li class='page-item' onclick='setPage(\"prev\"," + "\"" + data.search + "\")'><a class='page-link'>Previous</a></li>" + paginationPages +
+                "<li class='page-item'  onclick='setPage(\"next\"," + "\"" + data.search + "\")'><a class='page-link'>Next</a></li>\n" +
+                "</ul>\n" +
+                "</nav>\n" +
+                "</div>"
+        }
     }
 }

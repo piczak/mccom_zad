@@ -96,6 +96,10 @@ body {
     height: 25px;
     line-height: 0px;
     margin: 0 1px;
+    cursor:initial;
+}
+.btn {
+    cursor:default !important;
 }
 .btn:focus, .btn:active {
     outline: none !important;
@@ -121,9 +125,6 @@ body {
 #title {
     font-size:25px;
 }
-.logo {
-    width: 60px;
-}
 .movies img{
     display: block;
     margin-left: auto;
@@ -140,6 +141,41 @@ body {
 .movies p:hover {
     color:#1b1e21;
 }
+.input-group input {
+    outline: none;
+    box-shadow: none !important;
+}
+.input-group .input-group-prepend span {
+    border-left: none;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    cursor:pointer;
+}
+.input-group .input-group-prepend span:hover {
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    background: rgba(0,0,0,0.3);
+}
+.footer {
+    height:30px;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    overflow: hidden;
+    padding-left:15px;
+    line-height:30px;
+    background: #d2d2d2; /* Old browsers */
+    background: -moz-linear-gradient(top, #d2d2d2 0%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #d2d2d2 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #d2d2d2 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2d2d2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+.footer-separatotr {
+    height:1px;
+    width:100%;
+    margin-bottom:20px;
+    margin-top:20px;
+}
 
 @media screen and (min-width: 1200px) {
     .rating-box {
@@ -154,6 +190,10 @@ body {
     }
     .rating-box p {
         margin:2px;
+    }
+    .logo {
+        width:112px;
+        margin-bottom:3px;
     }
 }
 
@@ -180,6 +220,10 @@ body {
     .movie-info-topic p {
         font-size:14px;
         margin-bottom:2px;
+    }
+    .logo {
+        width:112px;
+        margin-bottom:3px;
     }
 }
 
@@ -210,6 +254,10 @@ body {
         margin:2px;
         display:inline-block;
     }
+    .logo {
+        width:112px;
+        margin-bottom:3px;
+    }
 }
 
 
@@ -239,6 +287,10 @@ body {
     .rating-box p {
         margin:2px;
         display:inline-block;
+    }
+    .logo {
+        width:112px;
+        margin-bottom:3px;
     }
 }
 
